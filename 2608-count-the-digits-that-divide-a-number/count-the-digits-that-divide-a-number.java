@@ -4,14 +4,14 @@ class Solution {
        int val = 0;
      
         while(num > 0)
-        {
-            int digit = num % 10;
+        {   //for last digit 
+            int digit = num % 10; 
 
             if(original % digit == 0){
                 val++;
            // return val;
-        }
-         num = num / 10;
+         } //to remove last digit
+          num = num / 10;
       }
       return val;
     }
