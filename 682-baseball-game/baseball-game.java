@@ -6,7 +6,8 @@ class Solution {
         int sum = 0;
 
         for(String op : operations)
-        {
+        {   
+            //compares string from array
             if(op.equals("C")){
                 i--;//remove previous value
             }
