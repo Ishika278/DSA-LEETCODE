@@ -1,30 +1,58 @@
 class Solution {
-    public int[] nextGreaterElement(int[] nums1, int[] nums2) {
-        
-        int[] ans = new int[nums1.length];
-        
-        for(int i = 0; i < nums1.length; i++)
+    public static void solve(int[] nums, HashMap<Integer,Integer> map)
+    {
+        Stack<Integer> stack = new Stack<>();
+        int n = nums.length;
+
+        for(int i = n-1; i >= 0; i--)
         {
-            ans[i] = -1;
-        }
-        for(int i = 0; i < nums1.length; i++)
-        {
-            for(int j = 0; j < nums2.length; j++)
-            {
-                if(nums1[i]  == nums2[j])
+            // if(stack.isEmpty())
+            // {
+            //     map.put(nums[i], -1);
+            // }
+            // else if(!stack.isEmpty() && stack.peek() <= nums[i])
+            // {
+                while(!stack.isEmpty() && stack.peek() <= nums[i])
                 {
-                    //next larger
-                    for(int k = j + 1; k < nums2.length; k++)
-                    {
-                        if(nums2[j]  < nums2[k])
-                        {
-                            ans[i] = nums2[k];
-                            break;
-                        }
-                    }
+                    stack.pop();
                 }
-            }
+                    if(stack.isEmpty())
+                    {
+                      map.put(nums[i], -1);
+                    }
+                    else{
+                        map.put(nums[i], stack.peek());
+                    }
+                stack.push(nums[i]);
+               
+            //}
         }
-        return ans;
     }
+    public static int[] nextGreaterElement(int[] nums1, int[] nums2) {
+        
+        HashMap<Integer, Integer> map = new HashMap<>();
+
+         int[] ans = new int[nums1.length];
+         
+         solve(nums2,map);
+         for(int i = 0; i < nums1.length; i++)
+         {
+           ans[i] = map.get(nums1[i]);
+          // ans[i] = -1;
+        }
+         solve(nums2,map);
+          return ans;
+    }
+   // return ans;
 }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
