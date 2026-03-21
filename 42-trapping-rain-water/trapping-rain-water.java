@@ -1,26 +1,26 @@
 class Solution {
     public int trap(int[] height) {
+        int n = height.length;
+        int i = 0, j = n - 1, area = 0, left_max = 0, right_max = 0;
 
-        int  n = height.length,i = 0, j = n-1, leftmax = 0, rightmax = 0, area = 0;
         while(i < j)
         {
-            if(leftmax < height[i])
+            if(left_max < height[i])
             {
-                leftmax = height[i];
+                left_max = height[i];
             }
-            if(rightmax < height[j])
+            if(right_max < height[j])
             {
-                rightmax = height[j];
+                right_max = height[j];
             }
-            if(leftmax < rightmax)
+            if(left_max < right_max)
             {
-                area += (leftmax - height[i]) * 1;
+                area += (left_max - height[i]) * 1;
                 i++;
             }
-            else
-            {
-             area += (rightmax -height[j]) * 1;
-             j--;
+            else{
+                area +=(right_max - height[j]) * 1;
+                j--;
             }
         }
         return area;
