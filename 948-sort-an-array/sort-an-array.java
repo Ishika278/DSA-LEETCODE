@@ -23,18 +23,18 @@ class Solution {
             nums[low + i] = arr[i];
          }
     }
-    public void mergesort(int[]nums, int low, int high){
+    public void divide(int[]nums, int low, int high){
         if(low >= high){
             return;
         }
         int mid = low + (high - low)/2;
-        mergesort(nums, low, mid);
-        mergesort(nums, mid+1, high);
+        divide(nums, low, mid);
+        divide(nums, mid+1, high);
         merge(nums, low, mid, high);
     }
     public int[] sortArray(int[] nums) {
        int low = 0, high = nums.length - 1;
-       mergesort(nums, low, high);
+       divide(nums, low, high);
        return nums;
     }
 }
