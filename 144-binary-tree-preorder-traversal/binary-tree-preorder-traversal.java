@@ -21,7 +21,7 @@ class Solution {
         ans.add(root.val);
         solve(root.left, ans);
         solve(root.right, ans);
-        return;
+        // return;
 
     }
     public List<Integer> preorderTraversal(TreeNode root) {
