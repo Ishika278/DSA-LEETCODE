@@ -3,7 +3,7 @@ class Solution {
         
         int n = nums.length;
         List<List<Integer>> ans = new ArrayList<>();
-        //sort array 
+        
         Arrays.sort(nums);
 
         for(int i = 0; i < n-3; i++)//n-3 -> need 4 elements from array
