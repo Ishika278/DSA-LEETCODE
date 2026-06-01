@@ -2,7 +2,7 @@ class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
         int n = nums.length;
         List<List<Integer>> ans = new ArrayList<>();
-        //sort array 
+    
         Arrays.sort(nums);
 
         for(int i = 0; i < n-2; i++)//n-2 -> need 3 elements from array
@@ -22,10 +22,10 @@ class Solution {
                     left++;
                     right--;
                     
-                    //skip duplicate value of left
+                    //to skip duplicate value of left
                     while(left < right && nums[left] == nums[left - 1]) 
                     left++;
-                    //skip duplicate value of right
+                    //to skip duplicate value of right
                     while(left < right && nums[right] == nums[right + 1])
                     right--;
                 }
