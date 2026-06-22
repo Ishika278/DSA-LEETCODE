@@ -14,19 +14,18 @@
  * }
  */
 class Solution {
-    public static void Solve(TreeNode root, List<Integer> ans)
+    public static void solve(TreeNode root, List<Integer> ans)
     {
-        if(root == null)
-        {
-            return;
-        }
-        Solve(root.left, ans);
-        Solve(root.right, ans);
+        if(root == null) return;
+
+        solve(root.left, ans);
+        solve(root.right, ans);
         ans.add(root.val);
     }
     public List<Integer> postorderTraversal(TreeNode root) {
-        List<Integer> ans = new ArrayList();
-        Solve(root, ans);
+        List<Integer> ans = new ArrayList<>();
+        solve(root, ans);
         return ans;
+        
     }
 }
