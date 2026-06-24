@@ -14,20 +14,21 @@
  * }
  */
 class Solution {
-    public static boolean Solve(TreeNode L, TreeNode R)
+    public static boolean symtree(TreeNode left, TreeNode right)
     {
-        if(L == null && R == null)  return true;
-    
-        if(L == null || R == null || L.val != R.val) return false;
+        if(left == right) return true;
+        if(left == null && right == null) return true;
+        if(left == null || right == null) return false;
 
-        return Solve(L.left, R.right) && Solve(R.left, L.right);
+        return(left.val == right.val) &&
+              symtree(left.left, right.right) &&
+              symtree(right.left, left.right);
+
     }
     public boolean isSymmetric(TreeNode root) {
         if(root == null) return true;
-         if(root.left == null && root.right == null)
-        {
-            return true;
-        }
-        return Solve(root.left, root.right);
+        if(root.left == null && root.right == null) return true;
+
+        return symtree(root.left, root.right);
     }
 }
