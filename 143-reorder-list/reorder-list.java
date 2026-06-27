@@ -11,6 +11,10 @@
 class Solution {
      public static ListNode reverse(ListNode head)
      {
+        //convert any linkedlist to list/vector
+        //operation
+        //convert to linkedlist
+        
         ListNode prev = null;
         ListNode curr = head;
 
