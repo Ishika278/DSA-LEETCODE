@@ -1,5 +1,5 @@
 class Solution {
-    public static int solve(int[]nums, int i, int[] dp)
+ public static int solve(int[]nums, int i, int[] dp)
     {
         if(i >= nums.length) return 0;
         if(dp[i] != -1)
